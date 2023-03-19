@@ -76,16 +76,14 @@ if __name__ == '__main__':
             with st.spinner(text='Detecing...'):
                 detect(**vars(opt))
 
+            st.success('Successful!')
 
             if source_index == 0:
                 with st.spinner(text='Preparing Images'):
                     for img in os.listdir(get_detection_folder()):
                         st.image(str(Path(f'{get_detection_folder()}') / img))
 
-                    st.balloons()
             else:
                 with st.spinner(text='Preparing Video'):
                     for vid in os.listdir(get_detection_folder()):
                         st.video(open(str(Path(f'{get_detection_folder()}') / vid), 'rb').read())
-
-                    st.balloons()
